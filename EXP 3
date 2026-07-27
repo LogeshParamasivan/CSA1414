@@ -1,3 +1,6 @@
+""""Logesh P
+192521351
+space remover"""
 #include <stdio.h>
 int main() {
     char c;
