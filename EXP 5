@@ -1,6 +1,6 @@
-//Logesh P
+"""Logesh P
 192521351
-lines and spaces//
+lines and spaces"""
 #include <stdio.h>
 int main() {
     char c;
