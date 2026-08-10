@@ -1,0 +1,27 @@
+//Logesh P
+//192521351
+/* Ex 25 - LEX Program to Identify Capital Words */
+
+%{
+#include <stdio.h>
+%}
+
+%%
+[A-Z]+ { printf("Capital Word: %s\n", yytext); }
+.|\n   ;
+%%
+
+int yywrap() { return 1; }
+int main() {
+    yylex();
+    return 0;
+}
+
+/*
+Input:
+Welcome to SAVEETHA School of ENGINEERING
+
+Output:
+Capital Word: SAVEETHA
+Capital Word: ENGINEERING
+*/
