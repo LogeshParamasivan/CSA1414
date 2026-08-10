@@ -1,0 +1,43 @@
+//Logesh P
+//192521351
+/* Ex 24 - LEX Program to Count Comments and Eliminate Them */
+
+%{
+#include <stdio.h>
+int comment_count = 0;
+%}
+
+%%
+"//".*                  { comment_count++; }
+"/*"([^*]|\*+[^/*])*"*/" { comment_count++; }
+.|\n                    { printf("%s", yytext); }
+%%
+
+int yywrap() { return 1; }
+int main() {
+    yylex();
+    fprintf(stderr, "\nTotal comment lines eliminated: %d\n", comment_count);
+    return 0;
+}
+
+/*
+Input:
+#include<stdio.h>
+int main()
+{
+int a,b,c; /*variable declaration*/
+c=a+b;//adding two numbers
+return 0;
+}
+
+Output:
+#include<stdio.h>
+int main()
+{
+int a,b,c; 
+c=a+b;
+return 0;
+}
+
+Total comment lines eliminated: 2
+*/
