@@ -1,0 +1,28 @@
+//Logesh P
+//192521351
+/* Ex 21 - LEX Program to Count Vowels in a Sentence */
+
+%{
+#include <stdio.h>
+int vowels = 0;
+%}
+
+%%
+[aeiouAEIOU] { vowels++; }
+.|\n          ;
+%%
+
+int yywrap() { return 1; }
+int main() {
+    yylex();
+    printf("Number of Vowels = %d\n", vowels);
+    return 0;
+}
+
+/*
+Input:
+Saveetha School of Engineering
+
+Output:
+Number of Vowels = 11
+*/
