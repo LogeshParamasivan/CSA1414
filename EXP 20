@@ -1,0 +1,37 @@
+//Logesh P
+//192521351
+/* Ex 20 - LEX Program to Count Macros and Header Files */
+
+%{
+#include <stdio.h>
+int macros = 0, headers = 0;
+%}
+
+%%
+"#define"[^\n]*   { macros++; }
+"#include"[^\n]*  { headers++; }
+.|\n              ;
+%%
+
+int yywrap() { return 1; }
+int main() {
+    yylex();
+    printf("Macros defined: %d\nHeader files included: %d\n", macros, headers);
+    return 0;
+}
+
+/*
+Input:
+#define PI 3.14
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+int a,b,c = 30;
+printf("hello");
+}
+
+Output:
+Macros defined: 1
+Header files included: 2
+*/
