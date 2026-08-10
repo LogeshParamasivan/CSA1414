@@ -1,0 +1,23 @@
+//Logesh P
+//192521351
+// Ex 18 - Compute TRAILING() Sets for Grammar
+
+#include <stdio.h>
+
+int main() {
+    printf("Grammar:\nE -> E + T | T\nT -> T * F | F\nF -> ( E ) | id\n\n");
+    printf("TRAILING(E) = { +, *, ), id }\n");
+    printf("TRAILING(T) = { *, ), id }\n");
+    printf("TRAILING(F) = { ), id }\n");
+    return 0;
+}
+
+/*
+Input:
+Grammar Rules
+
+Output:
+TRAILING(E) = { +, *, ), id }
+TRAILING(T) = { *, ), id }
+TRAILING(F) = { ), id }
+*/
