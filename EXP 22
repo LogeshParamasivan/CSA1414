@@ -1,0 +1,35 @@
+//Logesh P
+//192521351
+/* Ex 22 - LEX Program to Print HTML Tags */
+
+%{
+#include <stdio.h>
+%}
+
+%%
+"<"[^>]+">" { printf("HTML Tag: %s\n", yytext); }
+.|\n        ;
+%%
+
+int yywrap() { return 1; }
+int main() {
+    yylex();
+    return 0;
+}
+
+/*
+Input:
+<html>
+<body>
+<h1>My First Heading</h1>
+</body>
+</html>
+
+Output:
+HTML Tag: <html>
+HTML Tag: <body>
+HTML Tag: <h1>
+HTML Tag: </h1>
+HTML Tag: </body>
+HTML Tag: </html>
+*/
