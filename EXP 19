@@ -1,0 +1,35 @@
+//Logesh P
+//192521351
+/* Ex 19 - LEX Specification to Count Characters, Words, Lines */
+
+%{
+#include <stdio.h>
+int c = 0, w = 0, l = 0;
+%}
+
+%%
+\n        { l++; c++; }
+[^\t\n ]+ { w++; c += yyleng; }
+.         { c++; }
+%%
+
+int yywrap() { return 1; }
+int main() {
+    yylex();
+    printf("Characters = %d\nWords = %d\nLines = %d\n", c, w, l);
+    return 0;
+}
+
+/*
+Input:
+#include <stdio.h>
+int main()
+{
+return 0;
+}
+
+Output:
+Characters = 42
+Words = 5
+Lines = 5
+*/
