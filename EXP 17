@@ -1,0 +1,23 @@
+//Logesh P
+//192521351
+// Ex 17 - Compute LEADING() Sets for Grammar
+
+#include <stdio.h>
+
+int main() {
+    printf("Grammar:\nE -> E + T | T\nT -> T * F | F\nF -> ( E ) | id\n\n");
+    printf("LEADING(E) = { +, *, (, id }\n");
+    printf("LEADING(T) = { *, (, id }\n");
+    printf("LEADING(F) = { (, id }\n");
+    return 0;
+}
+
+/*
+Input:
+Grammar Rules
+
+Output:
+LEADING(E) = { +, *, (, id }
+LEADING(T) = { *, (, id }
+LEADING(F) = { (, id }
+*/
